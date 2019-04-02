@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,19 +14,21 @@ namespace HelloWorldDemoProject
             //Console.WriteLine(args.Length);
             try
             {
-                Console.WriteLine($"Hello {args[1]}");
-                Console.WriteLine("Super, kein Fehler");
-                Console.Read();
+                //Console.WriteLine($"Hello {args[1]}");
+                //Console.WriteLine("Super, kein Fehler");
+                //Console.Read();
+                //Console.WriteLine();
+                
+
             }
-            //catch (IndexOutOfRangeException IOORE) //when (IOORE.Message.Contains("Index"))
-            //{
-            //    Console.WriteLine(IOORE.Message);
-            //}
-
-            catch (Exception)
+            catch (UnauthorizedAccessException UAE)
             {
+                Console.WriteLine("Sie haben keine Berechtigung den Ordner zu erstellen.");
+            }
 
-                //throw new DemoException("");
+            catch (Exception ex)
+            {
+                throw new DemoException("test");
             }
             Console.Read();
         }
