@@ -7,25 +7,83 @@ using System.Threading.Tasks;
 
 namespace HelloWorldDemoProject
 {
-    public class LoggingService
+    public class LoggingService : ILoggingService, ILoggingService1, IInitLogging
     {
+        public string logFile;
+        private int counter;
+
+
+        public void init()
+        {
+        string path = (string)Environment.GetEnvironmentVariables()["APPDATA"];
+        string folder = Path.Combine(path, "SageAT");
+            Directory.CreateDirectory(folder);
+            logFile = Path.Combine(folder, "Infos.log");
+            counter = 0;
+        }
+
 
         /// <summary>
         /// Nicht das offensichtliche sondern die Absicht dahinter
         /// Soll einen Eintrag in die Infos.log anhängen
         /// </summary>
         /// <param name="toLog">Wird als neue Zeile angehängt</param>
+        /// 
+
+        #region ILoggingService
         public void Log(string toLog)
         {
-            var path = (string)Environment.GetEnvironmentVariables()["APPDATA"];
-            var folder = Path.Combine(path, "SageAT");
-            Directory.CreateDirectory(folder);
-            var logFile = Path.Combine(folder, "Infos.log");
 
             using (var sw = new StreamWriter(logFile, append: true))
             {
-                sw.WriteLine(toLog);
+                sw.WriteLine(counter.ToString() + " " + toLog);
+            }
+            counter++;
+        }
+
+        public void DeleteLine(int rowIndex)
+        {
+            var list = new List<string>();
+            using (var sr = new StreamReader(logFile))
+            {
+                while (!sr.EndOfStream)
+                {
+                    list.Add(sr.ReadLine());
+                }
+            }
+            for (int i = 0; i < list.Count; i++)
+            {
+                var islinetodelete = list[i].StartsWith(rowIndex.ToString());
+                if (islinetodelete)
+                {
+                    list.RemoveAt(i);
+                    break;
+                }
+            }
+            using (var sw = new StreamWriter(logFile, append: false))
+            {
+                foreach (var line in list)
+                {
+                    sw.WriteLine(line);
+                }
+
             }
         }
+
+
+
+        public List<string> Readlog()
+        {
+            var list = new List<string>();
+            using (var sr = new StreamReader(logFile))
+            {
+                while (!sr.EndOfStream)
+                {
+                    list.Add(sr.ReadLine());
+                }
+            }
+            return list;
+        }
+        #endregion ILoggingService
     }
 }

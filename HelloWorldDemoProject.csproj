@@ -42,6 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IInitLogging.cs" />
+    <Compile Include="ILoggingService.cs" />
+    <Compile Include="ILoggingService1.cs" />
     <Compile Include="LoggingService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
