@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorldDemoProject", "He
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestLoggerProject", "..\TestLoggerProject\TestLoggerProject.csproj", "{E9E6847B-7A4D-44E8-8F5F-93A36CE152AC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoWPF", "..\DemoWPF\DemoWPF.csproj", "{47CEC6A5-D439-404D-8A3D-F3F05B5EB317}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{E9E6847B-7A4D-44E8-8F5F-93A36CE152AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9E6847B-7A4D-44E8-8F5F-93A36CE152AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9E6847B-7A4D-44E8-8F5F-93A36CE152AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47CEC6A5-D439-404D-8A3D-F3F05B5EB317}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47CEC6A5-D439-404D-8A3D-F3F05B5EB317}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47CEC6A5-D439-404D-8A3D-F3F05B5EB317}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47CEC6A5-D439-404D-8A3D-F3F05B5EB317}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
