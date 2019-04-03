@@ -8,6 +8,6 @@ namespace HelloWorldDemoProject
 {
     class ShowKapselungTest
     {
-        EnvironmentVariableTarget mock
+        EnvironmentVariableTarget mock;
     }
 }
